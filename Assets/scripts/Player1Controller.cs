@@ -6,7 +6,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CarController : MonoBehaviour
+public class Player1Controller : MonoBehaviour
 {
     public float speed = 10;
     public float interpSpeed = 2;
@@ -22,7 +22,6 @@ public class CarController : MonoBehaviour
     Rigidbody rb = null;
 
     public float fireRate = 3;
-    private float nextFire = 0;
 
     Vector3 targetPosition;
     // Start is called before the first frame update
@@ -55,11 +54,6 @@ public class CarController : MonoBehaviour
         if(Input.GetKey(KeyCode.A)){
             transform.Rotate(0, -rotationSpeed, 0);
             moving = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
     }
 }
