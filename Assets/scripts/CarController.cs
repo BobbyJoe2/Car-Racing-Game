@@ -59,17 +59,7 @@ public class CarController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("hello");
             rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (nextFire <= Time.time)
-            {
-                Instantiate(bullet, barrel);
-                nextFire += fireRate;
-            }
         }
     }
 }
