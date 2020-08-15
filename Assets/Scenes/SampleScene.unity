@@ -224,7 +224,6 @@ GameObject:
   m_Component:
   - component: {fileID: 473250042}
   - component: {fileID: 473250041}
-  - component: {fileID: 473250040}
   - component: {fileID: 473250039}
   - component: {fileID: 473250038}
   m_Layer: 0
@@ -251,29 +250,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 473250037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f63ec78f1a813649a4f747b811c7996, type: 3}
+  m_Script: {fileID: 11500000, guid: cd6d2b008c749314bbd088fe5c5d077a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Car: {fileID: 1202324644}
-  distanceNeededToZoomOut: 0.2
-  defaultZoom: 60
-  zoomInSpeed: 10
-  zoomOutSpeed: 10
---- !u!114 &473250040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473250037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc06ebc427ad26c4aa6e81172cc6ce48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.42
-  cameraOffset: 15
-  MainPlayer: {fileID: 1202324644}
 --- !u!20 &473250041
 Camera:
   m_ObjectHideFlags: 0
@@ -299,7 +278,7 @@ Camera:
     height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 60
   orthographic: 0
   orthographic size: 6.145045
   m_Depth: -1
@@ -733,7 +712,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194229}
-  - component: {fileID: 963194230}
   - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
@@ -822,23 +800,11 @@ MonoBehaviour:
   speed: 1.42
   cameraOffset: 15
   MainPlayer: {fileID: 1103141336}
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f63ec78f1a813649a4f747b811c7996, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Car: {fileID: 1103141336}
-  distanceNeededToZoomOut: 0.2
+  cam: {fileID: 963194227}
+  distanceNeededToZoomOut: 0.1
   defaultZoom: 60
   zoomInSpeed: 10
-  zoomOutSpeed: 10
+  zoomOutSpeed: 15
 --- !u!1 &1103141336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1833253201146048, guid: 3876e5469a8e4774c8e455e83060541e,
@@ -1001,8 +967,6 @@ MonoBehaviour:
   interpSpeed: 1
   rotationSpeed: 1
   jumpPower: 20
-  barrel: {fileID: 0}
-  bullet: {fileID: 0}
   fireRate: 3
 --- !u!54 &1202324646
 Rigidbody:

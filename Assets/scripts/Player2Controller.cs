@@ -9,11 +9,7 @@ public class Player2Controller : MonoBehaviour
     public float rotationSpeed = 1;
     public float jumpPower = 20;
 
-    public Transform barrel;
-
-    public static bool moving = false;
-
-    public GameObject bullet = null;
+    public static bool player2Moving = false;
 
     Rigidbody rb = null;
 
@@ -33,27 +29,27 @@ public class Player2Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moving = false;
+        player2Moving = false;
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            moving = true;
+            player2Moving = true;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(Vector3.back * speed * Time.deltaTime);
-            moving = true;
+            player2Moving = true;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(0, rotationSpeed, 0);
-            moving = true;
+            player2Moving = true;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(0, -rotationSpeed, 0);
-            moving = true;
+            player2Moving = true;
         }
     }
 }
