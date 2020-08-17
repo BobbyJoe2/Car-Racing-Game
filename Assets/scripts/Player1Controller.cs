@@ -15,7 +15,7 @@ public class Player1Controller : MonoBehaviour
 
     public Transform barrel;
 
-    public static bool moving = false;
+    public static bool player1Moving = false;
 
     public GameObject bullet = null;
 
@@ -37,23 +37,23 @@ public class Player1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moving = false;
+        player1Moving = false;
 
         if(Input.GetKey(KeyCode.W)){
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            moving = true;
+            player1Moving = true;
         }
         if(Input.GetKey(KeyCode.S)){
             transform.Translate(Vector3.back * speed * Time.deltaTime);
-            moving = true;
+            player1Moving = true;
         }
         if(Input.GetKey(KeyCode.D)){
             transform.Rotate(0, rotationSpeed, 0);
-            moving = true;
+            player1Moving = true;
         }
         if(Input.GetKey(KeyCode.A)){
             transform.Rotate(0, -rotationSpeed, 0);
-            moving = true;
+            player1Moving = true;
         }
     }
 }
