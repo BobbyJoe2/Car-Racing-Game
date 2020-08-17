@@ -32,7 +32,7 @@ public class cameratest : MonoBehaviour
             Vector3 viewPos = cam.WorldToViewportPoint(Car.transform.position);
             if (viewPos.x >= distanceNeededToZoomOut && viewPos.x <= 1 && viewPos.y >= distanceNeededToZoomOut && viewPos.y <= 1 && viewPos.z > 0)
             {
-                if(cam.fieldOfView != defaultZoom && !CarController.moving)
+                if(cam.fieldOfView != defaultZoom && !Player1Controller.moving)
                 {
                     cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, defaultZoom, zoomInSpeed * Time.deltaTime);
                 }
