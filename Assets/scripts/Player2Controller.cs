@@ -25,7 +25,11 @@ public class Player2Controller : MonoBehaviour
 
     public float defaultSpeed = 20;
 
-    public Text txt;
+    public Text speedText;
+
+    public Text positionText;
+
+    public static int placeInRace = 2;
 
     Vector3 targetPosition;
     // Start is called before the first frame update
@@ -41,7 +45,16 @@ public class Player2Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = speed.ToString();
+        if (!player2Moving)
+        {
+            speedText.text = "0";
+        }
+        else
+        {
+            speedText.text = speed.ToString();
+        }
+
+        positionText.text = placeInRace.ToString();
 
         player2Moving = false;
 
