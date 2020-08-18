@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI; 
 using UnityEngine;
 
 public class Player2Controller : MonoBehaviour
@@ -7,13 +8,24 @@ public class Player2Controller : MonoBehaviour
     public float speed = 10;
     public float interpSpeed = 2;
     public float rotationSpeed = 1;
-    public float jumpPower = 20;
 
     public static bool player2Moving = false;
 
     Rigidbody rb = null;
 
-    public float fireRate = 3;
+    private bool spedUp = false;
+
+    private float speedUpStart = 0;
+
+    public float speedUpLife = 5;
+
+    private float speedUpEnd = 0;
+
+    public float speedUpSpeed = 25;
+
+    public float defaultSpeed = 10;
+
+    public Text txt;
 
     Vector3 targetPosition;
     // Start is called before the first frame update
@@ -29,6 +41,8 @@ public class Player2Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        txt.text = speed.ToString();
+
         player2Moving = false;
 
         if (Input.GetKey(KeyCode.UpArrow))
@@ -50,6 +64,35 @@ public class Player2Controller : MonoBehaviour
         {
             transform.Rotate(0, -rotationSpeed, 0);
             player2Moving = true;
+        }
+
+        if (Time.time >= speedUpEnd)
+        {
+            spedUp = false;
+        }
+
+        if (spedUp)
+        {
+            speed = Mathf.Lerp(speed, speedUpSpeed, 20 * Time.deltaTime);
+        }
+
+        if (!spedUp && speed != defaultSpeed)
+        {
+            speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SpeedUp")
+        {
+            spedUp = true;
+
+            speedUpStart = Time.time;
+
+            speedUpEnd = speedUpStart + speedUpLife;
+
+            Destroy(other.gameObject);
         }
     }
 }

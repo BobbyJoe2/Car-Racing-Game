@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Threading;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,17 +12,24 @@ public class Player1Controller : MonoBehaviour
     public float speed = 10;
     public float interpSpeed = 2;
     public float rotationSpeed = 1;
-    public float jumpPower = 20;
-
-    public Transform barrel;
 
     public static bool player1Moving = false;
 
-    public GameObject bullet = null;
-
     Rigidbody rb = null;
 
-    public float fireRate = 3;
+    private bool spedUp = false;
+
+    private float speedUpStart = 0;
+
+    public float speedUpLife = 5;
+
+    private float speedUpEnd = 0;
+
+    public float speedUpSpeed = 25;
+
+    public float defaultSpeed = 10;
+
+    public Text txt;
 
     Vector3 targetPosition;
     // Start is called before the first frame update
@@ -37,6 +45,8 @@ public class Player1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        txt.text = speed.ToString();
+
         player1Moving = false;
 
         if(Input.GetKey(KeyCode.W)){
@@ -54,6 +64,35 @@ public class Player1Controller : MonoBehaviour
         if(Input.GetKey(KeyCode.A)){
             transform.Rotate(0, -rotationSpeed, 0);
             player1Moving = true;
+        }
+
+        if(Time.time >= speedUpEnd)
+        {
+            spedUp = false;
+        }
+
+        if (spedUp)
+        {
+            speed = Mathf.Lerp(speed, speedUpSpeed, 20 * Time.deltaTime);
+        }
+
+        if (!spedUp && speed != defaultSpeed)
+        {
+            speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SpeedUp")
+        {
+            spedUp = true;
+
+            speedUpStart = Time.time;
+
+            speedUpEnd = speedUpStart + speedUpLife;
+
+            Destroy(other.gameObject);
         }
     }
 }
