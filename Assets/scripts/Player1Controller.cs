@@ -16,7 +16,7 @@ public class Player1Controller : MonoBehaviour
     public static bool player1Moving = false;
 
     Rigidbody rb = null;
-
+    public bool hasStar = false;
     private bool spedUp = false;
     private bool spedDown = false;
     private float speedUpStart = 0;
@@ -48,7 +48,10 @@ public class Player1Controller : MonoBehaviour
         txt.text = speed.ToString();
 
         player1Moving = false;
-
+        if (hasStar);
+        {
+            //make other player stop moving on collision, like Star In Mario Kart
+        }
         if(Input.GetKey(KeyCode.W)){
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             player1Moving = true;

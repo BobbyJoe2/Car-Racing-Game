@@ -12,7 +12,6 @@ public class Player2Controller : MonoBehaviour
     public static bool player2Moving = false;
 
     Rigidbody rb = null;
-
     private bool spedUp = false;
     private bool spedDown = false;
     private float speedUpStart = 0;
@@ -116,7 +115,6 @@ public class Player2Controller : MonoBehaviour
             speedDownEnd = speedDownStart + speedUpLife;
 
             Destroy(other.gameObject);
-            Debug.Log("InsertHere");
         }
     }
 }
