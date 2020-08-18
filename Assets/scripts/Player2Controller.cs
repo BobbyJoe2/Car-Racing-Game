@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player2Controller : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 20;
     public float interpSpeed = 2;
     public float rotationSpeed = 1;
 
@@ -23,7 +23,7 @@ public class Player2Controller : MonoBehaviour
 
     public float speedUpSpeed = 25;
 
-    public float defaultSpeed = 10;
+    public float defaultSpeed = 20;
 
     public Text txt;
 
