@@ -18,15 +18,15 @@ public class Player1Controller : MonoBehaviour
     Rigidbody rb = null;
 
     private bool spedUp = false;
-
+    private bool spedDown = false;
     private float speedUpStart = 0;
-
+    private float speedDownStart = 0;
     public float speedUpLife = 5;
-
+    
     private float speedUpEnd = 0;
-
+    private float speedDownEnd = 0;
     public float speedUpSpeed = 25;
-
+    public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
 
     public Text txt;
@@ -80,6 +80,21 @@ public class Player1Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
+
+        if (Time.time >= speedDownEnd)
+        {
+            spedDown = false;
+        }
+
+        if (spedDown)
+        {
+            speed = Mathf.Lerp(speed, speedDownSpeed, 20 * Time.deltaTime);
+        }
+
+        if (!spedDown && speed != defaultSpeed)
+        {
+            speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -93,6 +108,17 @@ public class Player1Controller : MonoBehaviour
             speedUpEnd = speedUpStart + speedUpLife;
 
             Destroy(other.gameObject);
+        }
+        if (other.tag == "SpeedDown")
+        {
+            spedDown = true;
+
+            speedDownStart = Time.time;
+
+            speedDownEnd = speedDownStart + speedUpLife;
+
+            Destroy(other.gameObject);
+            Debug.Log("InsertHere");
         }
     }
 }

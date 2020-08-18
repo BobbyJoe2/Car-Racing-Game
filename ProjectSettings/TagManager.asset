@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rocket
   - SpeedUp
+  - SpeedDown
   layers:
   - Default
   - TransparentFX
