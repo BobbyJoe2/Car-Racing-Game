@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player2Controller : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 20;
     public float interpSpeed = 2;
     public float rotationSpeed = 1;
 
@@ -21,6 +21,16 @@ public class Player2Controller : MonoBehaviour
     private float speedUpEnd = 0;
     private float speedDownEnd = 0;
     public float speedUpSpeed = 25;
+
+    public float defaultSpeed = 20;
+
+    public Text speedText;
+
+    public Text positionText;
+
+    public static int placeInRace = 2;
+
+    public static bool finishedRace = false;
     public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
     public Text txt;
@@ -39,7 +49,16 @@ public class Player2Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = speed.ToString();
+        if (!player2Moving)
+        {
+            speedText.text = "0";
+        }
+        else
+        {
+            speedText.text = speed.ToString();
+        }
+
+        positionText.text = placeInRace.ToString();
 
         player2Moving = false;
 
@@ -105,6 +124,10 @@ public class Player2Controller : MonoBehaviour
             speedUpEnd = speedUpStart + speedUpLife;
 
             Destroy(other.gameObject);
+        }
+        if (other.tag == ("FinishLine"))
+        {
+            finishedRace = true;
         }
         if (other.tag == "SpeedDown")
         {
