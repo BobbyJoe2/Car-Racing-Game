@@ -339,6 +339,20 @@ MonoBehaviour:
   rotationSpeed: 1
   jumpPower: 20
   fireRate: 3
+--- !u!114 &179758387608675731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7684193388653420658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877664c2563e6f34f86b4916aee8742c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timertext: {fileID: 0}
+  RaceFinished: 0
 --- !u!1001 &7684945099787153122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -678,6 +692,12 @@ GameObject:
 --- !u!4 &7685847259622309924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7684945101628438850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7684193388653420658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1642630927046960, guid: 3876e5469a8e4774c8e455e83060541e,
     type: 3}
   m_PrefabInstance: {fileID: 7684945101628438850}
   m_PrefabAsset: {fileID: 0}
