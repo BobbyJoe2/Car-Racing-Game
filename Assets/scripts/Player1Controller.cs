@@ -38,6 +38,14 @@ public class Player1Controller : MonoBehaviour
     public float endOfHitByStar;
     public Text txt;
 
+    public Text speedText;
+
+    public Text positionText;
+
+    public static int placeInRace = 1;
+
+    public static bool finishedRace = false;
+
     Vector3 targetPosition;
     // Start is called before the first frame update
     void Start()
@@ -52,7 +60,16 @@ public class Player1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = speed.ToString();
+        if (!player1Moving)
+        {
+            speedText.text = "0";
+        }
+        else
+        {
+            speedText.text = speed.ToString();
+        }
+
+        positionText.text = placeInRace.ToString();
 
         //Movement Code
         player1Moving = false;
@@ -130,6 +147,10 @@ public class Player1Controller : MonoBehaviour
             speedUpEnd = speedUpStart + speedUpLife;
 
             Destroy(other.gameObject);
+        }
+        if(other.tag == ("FinishLine"))
+        {
+            finishedRace = true;
         }
         if (other.tag == "SpeedDown")
         {
