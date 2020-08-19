@@ -337,8 +337,18 @@ MonoBehaviour:
   speed: 20
   interpSpeed: 1
   rotationSpeed: 1
-  jumpPower: 20
-  fireRate: 3
+  hasStar: 0
+  canMove: 1
+  speedUpLife: 5
+  speedFactor: 0
+  speedUpSpeed: 30
+  speedDownSpeed: 10
+  defaultSpeed: 20
+  pc: {fileID: 0}
+  timeFactor: 20
+  timeAfterHitByStar: 4
+  endOfHitByStar: 0
+  txt: {fileID: 0}
 --- !u!1001 &7684945099787153122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1833253201146048, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_Name
-      value: player 2
+      value: player 2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1833253201146048, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_TagString
@@ -625,7 +635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.41
+      value: -10.0059395
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -633,7 +643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.53
+      value: -45.99888
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalRotation.x

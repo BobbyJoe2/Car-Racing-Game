@@ -337,10 +337,31 @@ MonoBehaviour:
   speed: 20
   interpSpeed: 1
   rotationSpeed: 1
-  jumpPower: 5
-  barrel: {fileID: 1452867855}
-  bullet: {fileID: 1269371216061098, guid: c8788abf7763abf4f869276b4cb7bb0f, type: 3}
-  fireRate: 1
+  hasStar: 0
+  canMove: 1
+  speedUpLife: 5
+  speedFactor: 1
+  speedUpSpeed: 30
+  speedDownSpeed: 10
+  defaultSpeed: 20
+  pc: {fileID: 0}
+  timeFactor: 20
+  timeAfterHitByStar: 4
+  endOfHitByStar: 0
+  txt: {fileID: 0}
+--- !u!65 &1047960259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112797562653519717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3113222856571996123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -599,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1833253201146048, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player 1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1833253201146048, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_TagString
@@ -627,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.9783344
+      value: 3.716867
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -635,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.53
+      value: -46.26839
       objectReference: {fileID: 0}
     - target: {fileID: 4492080781097318, guid: 3876e5469a8e4774c8e455e83060541e, type: 3}
       propertyPath: m_LocalRotation.x

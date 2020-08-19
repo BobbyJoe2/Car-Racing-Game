@@ -17,18 +17,25 @@ public class Player1Controller : MonoBehaviour
 
     Rigidbody rb = null;
     public bool hasStar = false;
+    public bool canMove = true;
+
     private bool spedUp = false;
     private bool spedDown = false;
     private float speedUpStart = 0;
     private float speedDownStart = 0;
     public float speedUpLife = 5;
-    
+    public float speedFactor = 1;
+
     private float speedUpEnd = 0;
     private float speedDownEnd = 0;
     public float speedUpSpeed = 25;
     public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
 
+    public Player2Controller pc;
+    public float timeFactor = 20;
+    public float timeAfterHitByStar = 4;
+    public float endOfHitByStar;
     public Text txt;
 
     Vector3 targetPosition;
@@ -47,28 +54,32 @@ public class Player1Controller : MonoBehaviour
     {
         txt.text = speed.ToString();
 
+        //Movement Code
         player1Moving = false;
-        if (hasStar);
-        {
-            //make other player stop moving on collision, like Star In Mario Kart
-        }
-        if(Input.GetKey(KeyCode.W)){
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            player1Moving = true;
-        }
-        if(Input.GetKey(KeyCode.S)){
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-            player1Moving = true;
-        }
-        if(Input.GetKey(KeyCode.D)){
-            transform.Rotate(0, rotationSpeed, 0);
-            player1Moving = true;
-        }
-        if(Input.GetKey(KeyCode.A)){
-            transform.Rotate(0, -rotationSpeed, 0);
-            player1Moving = true;
-        }
 
+        if (canMove)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                player1Moving = true;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.Translate(Vector3.back * speed * Time.deltaTime);
+                player1Moving = true;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Rotate(0, rotationSpeed, 0);
+                player1Moving = true;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Rotate(0, -rotationSpeed, 0);
+                player1Moving = true;
+            }
+        }
         if(Time.time >= speedUpEnd)
         {
             spedUp = false;
@@ -76,12 +87,13 @@ public class Player1Controller : MonoBehaviour
 
         if (spedUp)
         {
-            speed = Mathf.Lerp(speed, speedUpSpeed, 20 * Time.deltaTime);
+            speed = Mathf.Lerp(speed, speedUpSpeed, timeFactor * Time.deltaTime);
+            print("Boost Gained!");
         }
 
         if (!spedUp && speed != defaultSpeed)
         {
-            speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
+            speed = Mathf.Lerp(speed, defaultSpeed, timeFactor * Time.deltaTime);
         }
 
         if (Time.time >= speedDownEnd)
@@ -91,12 +103,19 @@ public class Player1Controller : MonoBehaviour
 
         if (spedDown)
         {
-            speed = Mathf.Lerp(speed, speedDownSpeed, 20 * Time.deltaTime);
+            speed = Mathf.Lerp(speed, speedDownSpeed, timeFactor * Time.deltaTime);
         }
 
         if (!spedDown && speed != defaultSpeed)
         {
-            speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
+            speed = Mathf.Lerp(speed, defaultSpeed, timeFactor * Time.deltaTime);
+        }
+
+        //StarCode
+        if (Time.time >= endOfHitByStar)
+        {
+            pc.canMove = true;
+            Debug.Log("Finished");
         }
     }
 
@@ -122,6 +141,22 @@ public class Player1Controller : MonoBehaviour
 
             Destroy(other.gameObject);
             Debug.Log("InsertHere");
+        }
+
+        if (other.tag == "Star")
+        {
+            hasStar = true;
+            Destroy(other.gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if(hasStar && collision.gameObject.CompareTag("Player"))
+        {
+            pc.canMove = false;
+            print(collision.gameObject + "hit by star");
+            endOfHitByStar = Time.time + timeAfterHitByStar;
         }
     }
 }
