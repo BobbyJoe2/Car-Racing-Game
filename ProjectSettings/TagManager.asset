@@ -8,6 +8,8 @@ TagManager:
   - SpeedUp
   - Player1
   - Player2
+  - Player1PlaceHolder
+  - Player2PlaceHolder
   layers:
   - Default
   - TransparentFX

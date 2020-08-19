@@ -18,13 +18,13 @@ public class placeHolder : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(Player1Controller.placeInRace == 1 && Player2Controller.placeInRace == 2 && other.tag == "Player2")
+        if(Player1Controller.placeInRace == 1 && Player2Controller.placeInRace == 2 && other.tag == "Player2PlaceHolder")
         {
             Player1Controller.placeInRace = 2;
             Player2Controller.placeInRace = 1;
         }
 
-        else if (Player1Controller.placeInRace == 2 && Player2Controller.placeInRace == 1 && other.tag == "Player2")
+        else if (Player1Controller.placeInRace == 2 && Player2Controller.placeInRace == 1 && other.tag == "Player2PlaceHolder")
         {
             Player1Controller.placeInRace = 1;
             Player2Controller.placeInRace = 2;
