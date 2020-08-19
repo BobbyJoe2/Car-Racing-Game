@@ -10,6 +10,7 @@ TagManager:
   - Player2
   - Player1PlaceHolder
   - Player2PlaceHolder
+  - FinishLine
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,9 @@ TagManager:
   - 
   - Rocket
   - Player
-  - 
-  - 
-  - 
+  - PlayerPlaceHolder
+  - SpeedUpPowerUp
+  - FinishLine
   - 
   - 
   - 

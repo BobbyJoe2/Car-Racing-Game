@@ -393,6 +393,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &554870609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554870611}
+  - component: {fileID: 554870610}
+  m_Layer: 12
+  m_Name: FinishLine
+  m_TagString: FinishLine
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &554870610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554870609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &554870611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554870609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.780487, y: 3.9, z: 300.9355}
+  m_LocalScale: {x: 1000, y: 100, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &572402991
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 3112797562653519717, guid: 145b71049b4337347a6a700422cdcc4c,
         type: 3}
       propertyPath: m_TagString
-      value: Player1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3115248732795184835, guid: 145b71049b4337347a6a700422cdcc4c,
         type: 3}
@@ -865,7 +909,7 @@ GameObject:
   - component: {fileID: 1052057303}
   - component: {fileID: 1052057305}
   - component: {fileID: 1052057304}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: PlaceInRaceCollider
   m_TagString: Player1PlaceHolder
   m_Icon: {fileID: 0}
@@ -909,7 +953,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 600, y: 1, z: 1}
+  m_Size: {x: 600, y: 100, z: 0.5}
   m_Center: {x: 0, y: 0, z: 2.1}
 --- !u!1001 &1186810224
 PrefabInstance:
@@ -966,7 +1010,7 @@ PrefabInstance:
     - target: {fileID: 7685847259622309924, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -50.66
+      value: -57.67
       objectReference: {fileID: 0}
     - target: {fileID: 7685847259622309924, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe,
         type: 3}
@@ -1106,6 +1150,11 @@ PrefabInstance:
       propertyPath: MainPlayer
       value: 
       objectReference: {fileID: 1047960258}
+    - target: {fileID: 774143618309149974, guid: 3bb0669b8c7c4324397d067de1a6f016,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 774143618309149975, guid: 3bb0669b8c7c4324397d067de1a6f016,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1332,7 +1381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753530645}
   - component: {fileID: 1753530646}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Player2PlaceCollider
   m_TagString: Player2PlaceHolder
   m_Icon: {fileID: 0}
@@ -1364,7 +1413,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 600, y: 1, z: 0.01}
+  m_Size: {x: 600, y: 100, z: 0.01}
   m_Center: {x: 0, y: 0, z: 2.1}
 --- !u!1 &1932561526
 GameObject:
@@ -1772,6 +1821,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Speed Up Power Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487183328440842252, guid: 7e667ba6e0088ac48add5ac2eb8f18b8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e667ba6e0088ac48add5ac2eb8f18b8, type: 3}
