@@ -22,8 +22,6 @@ public class Player2Controller : MonoBehaviour
     private float speedDownEnd = 0;
     public float speedUpSpeed = 25;
 
-    public float defaultSpeed = 20;
-
     public Text speedText;
 
     public Text positionText;

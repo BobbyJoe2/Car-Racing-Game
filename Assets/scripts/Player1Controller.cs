@@ -63,7 +63,7 @@ public class Player1Controller : MonoBehaviour
         positionText.text = placeInRace.ToString();
 
         player1Moving = false;
-        if (hasStar);
+        if (hasStar)
         {
             //make other player stop moving on collision, like Star In Mario Kart
         }
