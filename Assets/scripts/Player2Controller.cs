@@ -31,7 +31,6 @@ public class Player2Controller : MonoBehaviour
     public static bool finishedRace = false;
     public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
-    public Text txt;
 
     Vector3 targetPosition;
     // Start is called before the first frame update
