@@ -16,17 +16,17 @@ public class Player1Controller : MonoBehaviour
     public static bool player1Moving = false;
 
     Rigidbody rb = null;
-
+    public bool hasStar = false;
     private bool spedUp = false;
-
+    private bool spedDown = false;
     private float speedUpStart = 0;
-
+    private float speedDownStart = 0;
     public float speedUpLife = 5;
-
+    
     private float speedUpEnd = 0;
-
+    private float speedDownEnd = 0;
     public float speedUpSpeed = 25;
-
+    public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
 
     public Text speedText;
@@ -63,7 +63,10 @@ public class Player1Controller : MonoBehaviour
         positionText.text = placeInRace.ToString();
 
         player1Moving = false;
-
+        if (hasStar);
+        {
+            //make other player stop moving on collision, like Star In Mario Kart
+        }
         if(Input.GetKey(KeyCode.W)){
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             player1Moving = true;
@@ -95,6 +98,21 @@ public class Player1Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
+
+        if (Time.time >= speedDownEnd)
+        {
+            spedDown = false;
+        }
+
+        if (spedDown)
+        {
+            speed = Mathf.Lerp(speed, speedDownSpeed, 20 * Time.deltaTime);
+        }
+
+        if (!spedDown && speed != defaultSpeed)
+        {
+            speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -112,6 +130,17 @@ public class Player1Controller : MonoBehaviour
         if(other.tag == ("FinishLine"))
         {
             finishedRace = true;
+        }
+        if (other.tag == "SpeedDown")
+        {
+            spedDown = true;
+
+            speedDownStart = Time.time;
+
+            speedDownEnd = speedDownStart + speedUpLife;
+
+            Destroy(other.gameObject);
+            Debug.Log("InsertHere");
         }
     }
 }

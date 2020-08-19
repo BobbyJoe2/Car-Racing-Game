@@ -11,6 +11,8 @@ TagManager:
   - Player1PlaceHolder
   - Player2PlaceHolder
   - FinishLine
+  - SpeedDown
+  - Star
   layers:
   - Default
   - TransparentFX

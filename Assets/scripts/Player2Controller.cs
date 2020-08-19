@@ -12,15 +12,14 @@ public class Player2Controller : MonoBehaviour
     public static bool player2Moving = false;
 
     Rigidbody rb = null;
-
     private bool spedUp = false;
-
+    private bool spedDown = false;
     private float speedUpStart = 0;
-
+    private float speedDownStart = 0;
     public float speedUpLife = 5;
 
     private float speedUpEnd = 0;
-
+    private float speedDownEnd = 0;
     public float speedUpSpeed = 25;
 
     public float defaultSpeed = 20;
@@ -32,6 +31,9 @@ public class Player2Controller : MonoBehaviour
     public static int placeInRace = 2;
 
     public static bool finishedRace = false;
+    public float speedDownSpeed = 10;
+    public float defaultSpeed = 10;
+    public Text txt;
 
     Vector3 targetPosition;
     // Start is called before the first frame update
@@ -95,6 +97,20 @@ public class Player2Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
+        if (Time.time >= speedDownEnd)
+        {
+            spedDown = false;
+        }
+
+        if (spedDown)
+        {
+            speed = Mathf.Lerp(speed, speedDownSpeed, 20 * Time.deltaTime);
+        }
+
+        if (!spedDown && speed != defaultSpeed)
+        {
+            speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -112,6 +128,16 @@ public class Player2Controller : MonoBehaviour
         if (other.tag == ("FinishLine"))
         {
             finishedRace = true;
+        }
+        if (other.tag == "SpeedDown")
+        {
+            spedDown = true;
+
+            speedDownStart = Time.time;
+
+            speedDownEnd = speedDownStart + speedUpLife;
+
+            Destroy(other.gameObject);
         }
     }
 }
