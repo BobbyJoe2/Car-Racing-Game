@@ -31,6 +31,8 @@ public class Player2Controller : MonoBehaviour
 
     public static int placeInRace = 2;
 
+    public static bool finishedRace = false;
+
     Vector3 targetPosition;
     // Start is called before the first frame update
     void Start()
@@ -106,6 +108,10 @@ public class Player2Controller : MonoBehaviour
             speedUpEnd = speedUpStart + speedUpLife;
 
             Destroy(other.gameObject);
+        }
+        if (other.tag == ("FinishLine"))
+        {
+            finishedRace = true;
         }
     }
 }
