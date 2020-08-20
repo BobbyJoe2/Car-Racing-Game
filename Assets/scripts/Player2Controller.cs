@@ -112,14 +112,14 @@ public class Player2Controller : MonoBehaviour
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
 
-        if (finishedRace)
+        /*if (finishedRace)
         {
             if (timertext != null)
             {
                 timertext.text = Mathf.Round(currentTime).ToString();
             }
         }
-        //Debug.Log(currentTime);
+        //Debug.Log(currentTime);*/
     }
 
     private void OnTriggerEnter(Collider other)

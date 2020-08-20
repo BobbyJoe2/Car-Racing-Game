@@ -118,7 +118,7 @@ public class Player1Controller : MonoBehaviour
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
 
-        if (finishedRace == false)
+        /*if (finishedRace == false)
         {
             currentTime = currentTime + Time.deltaTime;
             if (timertext != null)
@@ -134,7 +134,7 @@ public class Player1Controller : MonoBehaviour
                 timertext.text = Mathf.Round(currentTime).ToString();
             }
         }
-        //Debug.Log(currentTime);
+        //Debug.Log(currentTime);*/
     }
 
     // Update is called once per frame
