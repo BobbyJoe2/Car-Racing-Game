@@ -33,7 +33,8 @@ public class Player1Controller : MonoBehaviour
     public float defaultSpeed = 10;
 
     public Player2Controller pc;
-    public float timeFactor = 20;
+    public float starTimeFactor = 5;
+    public float starTimeOver;
     public float timeAfterHitByStar = 4;
     public float endOfHitByStar;
 
@@ -127,6 +128,14 @@ public class Player1Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
+        if (Time.time >= endOfHitByStar)
+        {
+            pc.canMove = true;
+        }
+        if (Time.time >= starTimeOver)
+        {
+            hasStar = false;
+        }
         /*if (finishedRace == false)
         {
             currentTime = currentTime + Time.deltaTime;
@@ -184,6 +193,7 @@ public class Player1Controller : MonoBehaviour
         {
             hasStar = true;
             Destroy(other.gameObject);
+            starTimeOver = Time.time + starTimeFactor;
         }
     }
     private void OnCollisionEnter(Collision collision)
