@@ -30,14 +30,15 @@ public class Camera1Follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (MainPlayer)
         {
             Vector3 targetposition = new Vector3(MainPlayer.transform.position.x, MainPlayer.transform.position.y + 10, MainPlayer.transform.position.z - cameraOffset);
-            Quaternion targertRotation = Quaternion.Euler(26, MainPlayer.transform.rotation.y, MainPlayer.transform.rotation.z);
+            float targetRotationY = MainPlayer.transform.rotation.y;
+            float targetRotationZ = MainPlayer.transform.rotation.z;
+            Quaternion targetRotation = Quaternion.Euler(26, targetRotationY, targetRotationZ);
 
             transform.position = Vector3.Lerp(transform.position, targetposition, speed * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targertRotation, speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
         }
 
         /*if (MainPlayer)
