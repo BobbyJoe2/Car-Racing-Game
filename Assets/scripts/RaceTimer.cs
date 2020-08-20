@@ -25,6 +25,6 @@ public class RaceTimer : MonoBehaviour
             }
         }
 
-    //    Debug.Log(currentTime);
+    //Debug.Log(currentTime);
     }
 }

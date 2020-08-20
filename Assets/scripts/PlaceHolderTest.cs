@@ -11,8 +11,7 @@ public class PlaceHolderTest : MonoBehaviour
     {
         if(other.tag == "Player1")
         {
-            player1Passed = true;
-            if(player2Passed == true)
+            if(player2Passed == true && player1Passed == false)
             {
                 Player1Controller.placeInRace = 2;
                 Player2Controller.placeInRace = 1;
@@ -22,11 +21,11 @@ public class PlaceHolderTest : MonoBehaviour
                 Player1Controller.placeInRace = 1;
                 Player2Controller.placeInRace = 2;
             }
+            player1Passed = true;
         }
         if (other.tag == "Player2")
         {
-            player2Passed = true;
-            if (player1Passed == true)
+            if (player1Passed == true && player2Passed == false)
             {
                 Player2Controller.placeInRace = 2;
                 Player1Controller.placeInRace = 1;
@@ -36,6 +35,7 @@ public class PlaceHolderTest : MonoBehaviour
                 Player2Controller.placeInRace = 1;
                 Player1Controller.placeInRace = 2;
             }
+            player2Passed = true;
         }
     }
 }

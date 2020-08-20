@@ -87,7 +87,7 @@ public class Player2Controller : MonoBehaviour
 
         if (spedUp)
         {
-            speed = Mathf.Lerp(speed, speedUpSpeed, 20 * Time.deltaTime);
+            speed = Mathf.Lerp(speed, speedUpSpeed, 50 * Time.deltaTime);
         }
 
         if (!spedUp && speed != defaultSpeed)
