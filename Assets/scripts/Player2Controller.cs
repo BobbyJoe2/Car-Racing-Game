@@ -112,14 +112,22 @@ public class Player2Controller : MonoBehaviour
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
 
-        /*if (finishedRace)
+        if (finishedRace == false)
+        {
+            currentTime = currentTime + Time.deltaTime;
+            if (timertext != null)
+            {
+                timertext.text = Mathf.Round(currentTime).ToString();
+            }
+        }
+
+        if (finishedRace)
         {
             if (timertext != null)
             {
                 timertext.text = Mathf.Round(currentTime).ToString();
             }
         }
-        //Debug.Log(currentTime);*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -136,7 +144,10 @@ public class Player2Controller : MonoBehaviour
         }
         if (other.tag == ("FinishLine"))
         {
-            finishedRace = true;
+            if (Checkpoint1Script.player2Passed == true && Checkpoint2Script.player2Passed == true && Checkpoint3Script.player2Passed == true)
+            {
+                finishedRace = true;
+            }
         }
         if (other.tag == "SpeedDown")
         {
