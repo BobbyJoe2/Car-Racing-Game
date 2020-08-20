@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Rocket
   - SpeedUp
+  - Player1
+  - Player2
+  - Player1PlaceHolder
+  - Player2PlaceHolder
+  - FinishLine
   - SpeedDown
   - Star
   layers:
@@ -19,9 +24,9 @@ TagManager:
   - 
   - Rocket
   - Player
-  - 
-  - 
-  - 
+  - PlayerPlaceHolder
+  - SpeedUpPowerUp
+  - FinishLine
   - 
   - 
   - 

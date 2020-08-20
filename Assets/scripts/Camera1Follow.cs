@@ -1,5 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Threading;
 using UnityEngine;
 
 public class Camera1Follow : MonoBehaviour
@@ -27,14 +30,17 @@ public class Camera1Follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (MainPlayer)
         {
-            Vector3 targetposition = new Vector3(MainPlayer.transform.position.x, transform.position.y, MainPlayer.transform.position.z - cameraOffset);
+            Vector3 targetposition = new Vector3(MainPlayer.transform.position.x, MainPlayer.transform.position.y + 10, MainPlayer.transform.position.z - cameraOffset);
+            Quaternion targertRotation = Quaternion.Euler(26, MainPlayer.transform.rotation.y, MainPlayer.transform.rotation.z);
 
             transform.position = Vector3.Lerp(transform.position, targetposition, speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targertRotation, speed * Time.deltaTime);
         }
 
-        if (MainPlayer)
+        /*if (MainPlayer)
         {
             Vector3 viewPos = cam.WorldToViewportPoint(MainPlayer.transform.position);
             if (viewPos.x >= distanceNeededToZoomOut && viewPos.x <= 1 && viewPos.y >= distanceNeededToZoomOut && viewPos.y <= 1 && viewPos.z > 0)
@@ -46,6 +52,6 @@ public class Camera1Follow : MonoBehaviour
             }
             else
                 cam.fieldOfView += zoomOutSpeed * Time.deltaTime;
-        }
+        }*/
     }
 }

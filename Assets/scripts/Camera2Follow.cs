@@ -29,23 +29,25 @@ public class Camera2Follow : MonoBehaviour
     {
         if (MainPlayer)
         {
-            Vector3 targetposition = new Vector3(MainPlayer.transform.position.x, transform.position.y, MainPlayer.transform.position.z - cameraOffset);
+            Vector3 targetposition = new Vector3(MainPlayer.transform.position.x, MainPlayer.transform.position.y + 10, MainPlayer.transform.position.z - cameraOffset);
+            Quaternion targertRotation = Quaternion.Euler(26, MainPlayer.transform.rotation.y, MainPlayer.transform.rotation.z);
 
             transform.position = Vector3.Lerp(transform.position, targetposition, speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targertRotation, speed * Time.deltaTime);
         }
 
-        if (MainPlayer)
+        /*if (MainPlayer)
         {
             Vector3 viewPos = cam.WorldToViewportPoint(MainPlayer.transform.position);
             if (viewPos.x >= distanceNeededToZoomOut && viewPos.x <= 1 && viewPos.y >= distanceNeededToZoomOut && viewPos.y <= 1 && viewPos.z > 0)
             {
-                if (cam.fieldOfView != defaultZoom && !Player2Controller.player2Moving)
+                if (cam.fieldOfView != defaultZoom && !Player1Controller.player1Moving)
                 {
                     cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, defaultZoom, zoomInSpeed * Time.deltaTime);
                 }
             }
             else
                 cam.fieldOfView += zoomOutSpeed * Time.deltaTime;
-        }
+        }*/
     }
 }
