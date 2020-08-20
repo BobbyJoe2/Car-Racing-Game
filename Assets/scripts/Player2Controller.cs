@@ -36,7 +36,6 @@ public class Player2Controller : MonoBehaviour
 
     public static bool finishedRace = false;
     public float speedDownSpeed = 10;
-    public float defaultSpeed = 10;
 
     public Player1Controller pc;
     public float timeFactor = 20;
@@ -59,17 +58,21 @@ public class Player2Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player2Moving)
+        if (speedText != null)
         {
-            speedText.text = "0";
+            if (!player2Moving)
+            {
+                speedText.text = "0";
+            }
+            else
+            {
+                speedText.text = speed.ToString();
+            }
         }
-        else
+        if (positionText != null)
         {
-            speedText.text = speed.ToString();
+            positionText.text = placeInRace.ToString();
         }
-
-        positionText.text = placeInRace.ToString();
-
         player2Moving = false;
 
         if (canMove)

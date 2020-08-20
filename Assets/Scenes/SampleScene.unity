@@ -439,6 +439,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3113222858350831946}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1103141337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1103141337, guid: 145b71049b4337347a6a700422cdcc4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3113222858350831946}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103141336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03dcd1bdae61ff46bf736a491536e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191437255
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +550,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7684945100267932960}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1202324645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1202324645, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 7684945100267932960}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202324644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fbdd8a62a6c534dac6fffebc2c531e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1529746589
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +736,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1103141337, guid: 145b71049b4337347a6a700422cdcc4c, type: 3}
+      propertyPath: pc
+      value: 
+      objectReference: {fileID: 1202324645}
     - target: {fileID: 3112797562653519717, guid: 145b71049b4337347a6a700422cdcc4c,
         type: 3}
       propertyPath: m_Name
@@ -781,6 +809,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1202324645, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe, type: 3}
+      propertyPath: pc
+      value: 
+      objectReference: {fileID: 1103141337}
+    - target: {fileID: 1202324645, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe, type: 3}
+      propertyPath: hasStar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7683399967752751490, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe,
         type: 3}
       propertyPath: m_Name

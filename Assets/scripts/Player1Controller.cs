@@ -60,16 +60,21 @@ public class Player1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player1Moving)
+        if (speedText != null)
         {
-            speedText.text = "0";
+            if (!player1Moving)
+            {
+                speedText.text = "0";
+            }
+            else
+            {
+                speedText.text = speed.ToString();
+            }
         }
-        else
+        if (positionText != null)
         {
-            speedText.text = speed.ToString();
+            positionText.text = placeInRace.ToString();
         }
-
-        positionText.text = placeInRace.ToString();
 
         //Movement Code
         player1Moving = false;
