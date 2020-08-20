@@ -36,7 +36,8 @@ public class Player2Controller : MonoBehaviour
     public float defaultSpeed = 10;
 
     public Player1Controller pc;
-    public float timeFactor = 20;
+    public float starTimeFactor = 5;
+    public float starTimeOver;
     public float timeAfterHitByStar = 4;
     public float endOfHitByStar;
     Vector3 targetPosition;
@@ -123,6 +124,10 @@ public class Player2Controller : MonoBehaviour
         {
             pc.canMove = true;
         }
+        if (Time.time >= starTimeOver)
+        {
+            hasStar = false;
+        }
         /*if (finishedRace)
         {
             if (timertext != null)
@@ -164,6 +169,7 @@ public class Player2Controller : MonoBehaviour
         {
             hasStar = true;
             Destroy(other.gameObject);
+            starTimeOver = Time.time + starTimeFactor;
 
         }
     }
