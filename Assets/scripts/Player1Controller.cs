@@ -38,6 +38,10 @@ public class Player1Controller : MonoBehaviour
     public static bool finishedRace = false;
 
     Vector3 targetPosition;
+
+    private float currentTime = 0;
+    public Text timertext;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +117,27 @@ public class Player1Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (finishedRace == false)
+        {
+            currentTime = currentTime + Time.deltaTime;
+            if (timertext != null)
+            {
+                timertext.text = Mathf.Round(currentTime).ToString();
+            }
+        }
+        if (finishedRace)
+        {
+            if (timertext != null)
+            {
+                timertext.text = Mathf.Round(currentTime).ToString();
+            }
+        }
+        //Debug.Log(currentTime);
     }
 
     private void OnTriggerEnter(Collider other)
