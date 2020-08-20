@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Player2Controller : MonoBehaviour
 {
+    public bool hasStar = false;
+    public bool canMove = true;
+
     public float speed = 20;
     public float interpSpeed = 2;
     public float rotationSpeed = 1;
@@ -32,7 +35,14 @@ public class Player2Controller : MonoBehaviour
     public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
 
+    public Player1Controller pc;
+    public float timeFactor = 20;
+    public float timeAfterHitByStar = 4;
+    public float endOfHitByStar;
     Vector3 targetPosition;
+
+    private float currentTime = 0;
+    public Text timertext;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,28 +68,29 @@ public class Player2Controller : MonoBehaviour
         positionText.text = placeInRace.ToString();
 
         player2Moving = false;
-
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (canMove)
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            player2Moving = true;
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                player2Moving = true;
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.Translate(Vector3.back * speed * Time.deltaTime);
+                player2Moving = true;
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Rotate(0, rotationSpeed, 0);
+                player2Moving = true;
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Rotate(0, -rotationSpeed, 0);
+                player2Moving = true;
+            }
         }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-            player2Moving = true;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(0, rotationSpeed, 0);
-            player2Moving = true;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(0, -rotationSpeed, 0);
-            player2Moving = true;
-        }
-
         if (Time.time >= speedUpEnd)
         {
             spedUp = false;
@@ -108,6 +119,18 @@ public class Player2Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
+        if (Time.time >= endOfHitByStar)
+        {
+            pc.canMove = true;
+        }
+        /*if (finishedRace)
+        {
+            if (timertext != null)
+            {
+                timertext.text = Mathf.Round(currentTime).ToString();
+            }
+        }
+        //Debug.Log(currentTime);*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -135,6 +158,22 @@ public class Player2Controller : MonoBehaviour
             speedDownEnd = speedDownStart + speedUpLife;
 
             Destroy(other.gameObject);
+        }
+
+        if (other.tag == "Star")
+        {
+            hasStar = true;
+            Destroy(other.gameObject);
+
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (hasStar && collision.gameObject.CompareTag("Player1"))
+        {
+            pc.canMove = false;
+            print(collision.gameObject + "hit by star");
+            endOfHitByStar = Time.time + timeAfterHitByStar;
         }
     }
 }
