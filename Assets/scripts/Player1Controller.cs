@@ -17,17 +17,26 @@ public class Player1Controller : MonoBehaviour
 
     Rigidbody rb = null;
     public bool hasStar = false;
+    public bool canMove = true;
+
     private bool spedUp = false;
     private bool spedDown = false;
     private float speedUpStart = 0;
     private float speedDownStart = 0;
     public float speedUpLife = 5;
-    
+    public float speedFactor = 1;
+
     private float speedUpEnd = 0;
     private float speedDownEnd = 0;
     public float speedUpSpeed = 25;
     public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
+
+    public Player2Controller pc;
+    public float starTimeFactor = 5;
+    public float starTimeOver;
+    public float timeAfterHitByStar = 4;
+    public float endOfHitByStar;
 
     public Text speedText;
 
@@ -67,27 +76,29 @@ public class Player1Controller : MonoBehaviour
         positionText.text = placeInRace.ToString();
 
         player1Moving = false;
-        if (hasStar)
+        if (canMove)
         {
-            //make other player stop moving on collision, like Star In Mario Kart
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                player1Moving = true;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.Translate(Vector3.back * speed * Time.deltaTime);
+                player1Moving = true;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Rotate(0, rotationSpeed, 0);
+                player1Moving = true;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Rotate(0, -rotationSpeed, 0);
+                player1Moving = true;
+            }
         }
-        if(Input.GetKey(KeyCode.W)){
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            player1Moving = true;
-        }
-        if(Input.GetKey(KeyCode.S)){
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-            player1Moving = true;
-        }
-        if(Input.GetKey(KeyCode.D)){
-            transform.Rotate(0, rotationSpeed, 0);
-            player1Moving = true;
-        }
-        if(Input.GetKey(KeyCode.A)){
-            transform.Rotate(0, -rotationSpeed, 0);
-            player1Moving = true;
-        }
-
         if(Time.time >= speedUpEnd)
         {
             spedUp = false;
@@ -117,7 +128,14 @@ public class Player1Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
-
+        if (Time.time >= endOfHitByStar)
+        {
+            pc.canMove = true;
+        }
+        if (Time.time >= starTimeOver)
+        {
+            hasStar = false;
+        }
         if (finishedRace == false)
         {
             currentTime = currentTime + Time.deltaTime;
@@ -167,6 +185,22 @@ public class Player1Controller : MonoBehaviour
 
             Destroy(other.gameObject);
             Debug.Log("InsertHere");
+        }
+
+        if (other.tag == "Star")
+        {
+            hasStar = true;
+            Destroy(other.gameObject);
+            starTimeOver = Time.time + starTimeFactor;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (hasStar && collision.gameObject.CompareTag("Player2"))
+        {
+            pc.canMove = false;
+            print(collision.gameObject + "hit by star");
+            endOfHitByStar = Time.time + timeAfterHitByStar;
         }
     }
 }
