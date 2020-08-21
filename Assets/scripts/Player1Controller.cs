@@ -44,7 +44,7 @@ public class Player1Controller : MonoBehaviour
 
     public static int placeInRace = 1;
 
-    public static bool finishedRace = false;
+    public bool finishedRace1 = false;
 
     Vector3 targetPosition;
 
@@ -137,8 +137,9 @@ public class Player1Controller : MonoBehaviour
             hasStar = false;
         }
 
-        if (finishedRace == false)
+        if (finishedRace1 == false)
         {
+            Debug.Log("you havent finished race");
             currentTime = currentTime + Time.deltaTime;
             if (timerText != null)
             {
@@ -146,7 +147,7 @@ public class Player1Controller : MonoBehaviour
             }
         }
 
-        if (finishedRace)
+        if (finishedRace1)
         {
             if (timerText != null)
             {
@@ -173,7 +174,7 @@ public class Player1Controller : MonoBehaviour
         {
             if(Checkpoint1Script.player1Passed == true && Checkpoint2Script.player1Passed == true && Checkpoint3Script.player1Passed == true)
             {
-                finishedRace = true;
+                finishedRace1 = true;
             }
         }
         

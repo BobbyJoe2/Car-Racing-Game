@@ -31,7 +31,7 @@ public class Player2Controller : MonoBehaviour
 
     public static int placeInRace = 2;
 
-    public static bool finishedRace = false;
+    public bool finishedRace2 = false;
     public float speedDownSpeed = 10;
     public float defaultSpeed = 10;
 
@@ -120,7 +120,7 @@ public class Player2Controller : MonoBehaviour
         {
             speed = Mathf.Lerp(speed, defaultSpeed, 20 * Time.deltaTime);
         }
-        if (finishedRace == false)
+        if (finishedRace2 == false)
         {
             currentTime = currentTime + Time.deltaTime;
             if (timertext != null)
@@ -129,7 +129,7 @@ public class Player2Controller : MonoBehaviour
             }
         }
 
-        if (finishedRace)
+        if (finishedRace2)
         {
             if (timertext != null)
             {
@@ -164,7 +164,7 @@ public class Player2Controller : MonoBehaviour
         {
             if (Checkpoint1Script.player2Passed == true && Checkpoint2Script.player2Passed == true && Checkpoint3Script.player2Passed == true)
             {
-                finishedRace = true;
+                finishedRace2 = true;
             }
         }
         if (other.tag == "SpeedDown")
