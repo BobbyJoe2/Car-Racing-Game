@@ -110,8 +110,8 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -24.4
   intensityX:
     overrideState: 0
     value: 1
@@ -163,8 +163,8 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   shutterAngle:
-    overrideState: 0
-    value: 270
+    overrideState: 1
+    value: 288
   sampleCount:
     overrideState: 0
     value: 10
@@ -239,7 +239,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 1
+    value: 1.15
   contrast:
     overrideState: 0
     value: 0
