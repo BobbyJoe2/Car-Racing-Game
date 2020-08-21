@@ -139,7 +139,6 @@ public class Player1Controller : MonoBehaviour
 
         if (finishedRace1 == false)
         {
-            Debug.Log("you havent finished race");
             currentTime = currentTime + Time.deltaTime;
             if (timerText != null)
             {
