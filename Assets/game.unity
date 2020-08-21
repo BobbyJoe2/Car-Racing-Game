@@ -4330,6 +4330,10 @@ PrefabInstance:
       propertyPath: pc
       value: 
       objectReference: {fileID: 1415878055}
+    - target: {fileID: 1103141339, guid: 145b71049b4337347a6a700422cdcc4c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3112797562653519717, guid: 145b71049b4337347a6a700422cdcc4c,
         type: 3}
       propertyPath: m_Name
@@ -8340,6 +8344,10 @@ PrefabInstance:
       propertyPath: pc
       value: 
       objectReference: {fileID: 109881127}
+    - target: {fileID: 1202324646, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 7683399967752751490, guid: 0fcee34f89ad44e4bbaf7e1d542fe9fe,
         type: 3}
       propertyPath: m_Name
