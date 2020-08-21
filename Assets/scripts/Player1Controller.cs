@@ -49,7 +49,7 @@ public class Player1Controller : MonoBehaviour
     Vector3 targetPosition;
 
     private float currentTime = 0;
-    public Text timertext;
+    public Text timerText;
 
     // Start is called before the first frame update
     void Start()
@@ -136,20 +136,22 @@ public class Player1Controller : MonoBehaviour
         {
             hasStar = false;
         }
+
         if (finishedRace == false)
         {
             currentTime = currentTime + Time.deltaTime;
-            if (timertext != null)
+            if (timerText != null)
             {
-                timertext.text = Mathf.Round(currentTime).ToString();
+                timerText.text = Mathf.Round(currentTime).ToString();
             }
         }
-        
+
         if (finishedRace)
         {
-            if (timertext != null)
+            if (timerText != null)
             {
-                timertext.text = Mathf.Round(currentTime).ToString();
+                timerText.text = Mathf.Round(currentTime).ToString();
+
             }
         }
     }

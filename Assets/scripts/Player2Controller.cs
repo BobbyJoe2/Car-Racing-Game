@@ -134,6 +134,7 @@ public class Player2Controller : MonoBehaviour
             if (timertext != null)
             {
                 timertext.text = Mathf.Round(currentTime).ToString();
+                
             }
         }
         if (Time.time >= endOfHitByStar)
@@ -144,6 +145,7 @@ public class Player2Controller : MonoBehaviour
         {
             hasStar = false;
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
